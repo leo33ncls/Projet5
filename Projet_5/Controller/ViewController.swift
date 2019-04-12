@@ -21,13 +21,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         for imageView in imagesView {
             imageViewRecognizer(imageView: imageView)
         }
+        
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(shareView))
+        swipeGestureRecognizer.direction = .up
+        rectangleImagesView.addGestureRecognizer(swipeGestureRecognizer)
     }
+    
     
     func imageViewRecognizer(imageView: UIImageView) {
         imageView.isUserInteractionEnabled = true
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(choiceImage))
         imageView.addGestureRecognizer(tapGestureRecognizer)
     }
+    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         imagePicker?.dismiss(animated: true, completion: nil)
@@ -42,6 +48,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker?.dismiss(animated: true, completion: nil)
     }
     
+    
     @objc func choiceImage() {
         imagePicker = UIImagePickerController()
         imagePicker?.delegate = self
@@ -50,6 +57,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker?.sourceType = .photoLibrary
         self.present(self.imagePicker!, animated: true, completion: nil)
     }
+    
+    
+    @objc func shareView(_ sender: UISwipeGestureRecognizer) {
+    }
+    
 
     @IBAction func tapButton1(_ sender: Any) {
         rectangleImagesView.disposition = .first
