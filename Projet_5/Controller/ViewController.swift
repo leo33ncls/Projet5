@@ -11,9 +11,23 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var rectangleImagesView: RectangleImagesView!
+    @IBOutlet var imagesView: [UIImageView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for imageView in imagesView {
+            imageViewRecognizer(imageView: imageView)
+        }
+    }
+    
+    func imageViewRecognizer(imageView: UIImageView) {
+        imageView.isUserInteractionEnabled = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(choiceImage))
+        imageView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func choiceImage() {
     }
 
     @IBAction func tapButton1(_ sender: Any) {
