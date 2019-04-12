@@ -60,6 +60,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @objc func shareView(_ sender: UISwipeGestureRecognizer) {
+        switch sender.state {
+        case .began,.changed:
+            rectangleImagesView.frame = CGRect(x: 30, y: sender.location(in: rectangleImagesView).y, width: 300, height: 300)
+        case .ended:
+            shareContent()
+        default:
+            break
+        }
+    }
+    
+    
+    func shareContent() {
+        var sharedContent: [Any] = []
+        sharedContent.append(rectangleImagesView)
+        
+        let activityViewController = UIActivityViewController(activityItems: sharedContent, applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
 
