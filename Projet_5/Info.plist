@@ -41,5 +41,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Delm-Medium.otf</string>
+		<string>ThirstySoftRegular.otf</string>
+	</array>
 </dict>
 </plist>

@@ -14,6 +14,8 @@
 		2806C25E22541E710004EBB0 /* RectangleImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2806C25D22541E710004EBB0 /* RectangleImagesView.swift */; };
 		289C3EBC225ABB3800E2E5F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289C3EBB225ABB3800E2E5F9 /* Assets.xcassets */; };
 		289C3EBE225AC3E000E2E5F9 /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289C3EBD225AC3E000E2E5F9 /* ButtonsView.swift */; };
+		289C3ECA226645F400E2E5F9 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 289C3EC9226645F400E2E5F9 /* Delm-Medium.otf */; };
+		289C3ECC226645FC00E2E5F9 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 289C3ECB226645FC00E2E5F9 /* ThirstySoftRegular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		2806C25D22541E710004EBB0 /* RectangleImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleImagesView.swift; sourceTree = "<group>"; };
 		289C3EBB225ABB3800E2E5F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		289C3EBD225AC3E000E2E5F9 /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
+		289C3EC9226645F400E2E5F9 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
+		289C3ECB226645FC00E2E5F9 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 		2806C25A2253EEA40004EBB0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				289C3EC9226645F400E2E5F9 /* Delm-Medium.otf */,
+				289C3ECB226645FC00E2E5F9 /* ThirstySoftRegular.otf */,
 				2806C24522527E870004EBB0 /* AppDelegate.swift */,
 				289C3EBB225ABB3800E2E5F9 /* Assets.xcassets */,
 				2806C24E22527E8C0004EBB0 /* LaunchScreen.storyboard */,
@@ -162,6 +168,8 @@
 			files = (
 				2806C25022527E8C0004EBB0 /* LaunchScreen.storyboard in Resources */,
 				289C3EBC225ABB3800E2E5F9 /* Assets.xcassets in Resources */,
+				289C3ECC226645FC00E2E5F9 /* ThirstySoftRegular.otf in Resources */,
+				289C3ECA226645F400E2E5F9 /* Delm-Medium.otf in Resources */,
 				2806C24B22527E870004EBB0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
