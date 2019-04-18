@@ -78,14 +78,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @objc func shareView(_ sender: UISwipeGestureRecognizer) {
-        switch sender.state {
-        case .began,.changed:
-            rectangleImagesView.frame = CGRect(x: 30, y: sender.location(in: rectangleImagesView).y, width: 300, height: 300)
-        case .ended:
-            shareContent()
-        default:
-            break
-        }
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            if sender.direction == .up {
+                self.rectangleImagesView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
+            } else if sender.direction == .left {
+                self.rectangleImagesView.transform = CGAffineTransform(translationX: self.view.frame.width, y: 0)
+            }
+            
+        }, completion: { (success) in
+            if success {
+                if self.rectangleImagesView.currentViewCanBeShared() {
+                    self.shareContent()
+                } else {
+                    let alert = UIAlertController(title: "Share unavailable", message: "Missing image", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    self.rectangleImagesView.transform = .identity
+                }
+            }
+        })
     }
     
     

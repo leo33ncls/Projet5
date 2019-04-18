@@ -16,6 +16,14 @@ class FirstDispositionView: UIView {
     
     var imageViewSelected: UIImageView? = nil
     
+    var isReadyToBeShared: Bool {
+        if firstImageView.image == UIImage(named: "RectangleCross") || secondImageView.image == UIImage(named: "Cross") || thirdImageView.image == UIImage(named: "Cross") {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     func imageViewRecognizer() {
         firstImageView.isUserInteractionEnabled = true
         secondImageView.isUserInteractionEnabled = true

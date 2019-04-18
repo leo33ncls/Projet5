@@ -27,14 +27,20 @@ class RectangleImagesView: UIView {
     private func setDisposition (disposition: Disposition) {
         switch disposition {
         case .first :
+            self.transform = CGAffineTransform(translationX: UIScreen.main.bounds.minX - frame.maxX, y: 0)
+            UIView.animate(withDuration: 0.4, animations: { self.transform = .identity })
             firstDisposition.isHidden = false
             secondDisposition.isHidden = true
             thirdDisposition.isHidden = true
         case .second:
+            self.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+            UIView.animate(withDuration: 0.4, animations: { self.transform = .identity })
             firstDisposition.isHidden = true
             secondDisposition.isHidden = false
             thirdDisposition.isHidden = true
         case .third:
+            self.transform = CGAffineTransform(translationX: UIScreen.main.bounds.maxX, y: 0)
+            UIView.animate(withDuration: 0.4, animations: { self.transform = .identity })
             firstDisposition.isHidden = true
             secondDisposition.isHidden = true
             thirdDisposition.isHidden = false
@@ -49,6 +55,16 @@ class RectangleImagesView: UIView {
         thirdDisposition.refreshView()
     }
     
-    
+    func currentViewCanBeShared() -> Bool {
+        if disposition == .first && firstDisposition.isReadyToBeShared {
+            return true
+        } else if disposition == .second && secondDisposition.isReadyToBeShared {
+            return true
+        } else if disposition == .third && thirdDisposition.isReadyToBeShared {
+            return true
+        } else {
+            return false
+        }
+    }
     
 }
