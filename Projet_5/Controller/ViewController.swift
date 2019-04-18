@@ -17,16 +17,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        rectangleImagesView.firstDisposition.imageViewRecognizer()
+        rectangleImagesView.secondDisposition.imageViewRecognizer()
+        rectangleImagesView.thirdDisposition.imageViewRecognizer()
         
-        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(shareView))
-        swipeGestureRecognizer.direction = .up
-        rectangleImagesView.addGestureRecognizer(swipeGestureRecognizer)
+        
+        swipeGestureRecognizer()
         
         
         let name = Notification.Name(rawValue: "TapGestureRecognizer")
         NotificationCenter.default.addObserver(
             self, selector: #selector(choiceImage),
             name: name, object: nil)
+        
+    }
+    
+    
+    func swipeGestureRecognizer() {
+        if UIDevice.current.orientation == .portrait {
+            let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(shareView))
+            swipeGestureRecognizer.direction = .up
+            rectangleImagesView.addGestureRecognizer(swipeGestureRecognizer)
+        } else {
+            let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(shareView))
+            swipeGestureRecognizer.direction = .left
+            rectangleImagesView.addGestureRecognizer(swipeGestureRecognizer)
+        }
     }
     
     

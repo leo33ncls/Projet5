@@ -197,16 +197,6 @@
                     </view>
                     <connections>
                         <outlet property="rectangleImagesView" destination="p6y-A4-9SV" id="jwV-wx-ZMH"/>
-                        <outletCollection property="imagesView" destination="3YL-fS-dN3" collectionClass="NSMutableArray" id="fat-E5-Q6b"/>
-                        <outletCollection property="imagesView" destination="eOt-Bb-7Fi" collectionClass="NSMutableArray" id="t4W-nj-rkB"/>
-                        <outletCollection property="imagesView" destination="jCd-lu-rKO" collectionClass="NSMutableArray" id="Ngb-ib-MXe"/>
-                        <outletCollection property="imagesView" destination="RrL-IG-Jwu" collectionClass="NSMutableArray" id="x8y-91-Qpj"/>
-                        <outletCollection property="imagesView" destination="0Vx-hk-CPO" collectionClass="NSMutableArray" id="WCj-b0-I0Z"/>
-                        <outletCollection property="imagesView" destination="0yc-GL-AEr" collectionClass="NSMutableArray" id="bXo-lu-KXV"/>
-                        <outletCollection property="imagesView" destination="XT0-PW-lcH" collectionClass="NSMutableArray" id="2SP-yd-b3O"/>
-                        <outletCollection property="imagesView" destination="ZLe-iR-adS" collectionClass="NSMutableArray" id="63E-1g-U7g"/>
-                        <outletCollection property="imagesView" destination="cCC-Di-OwO" collectionClass="NSMutableArray" id="plM-FN-YGB"/>
-                        <outletCollection property="imagesView" destination="s6B-eG-cJq" collectionClass="NSMutableArray" id="Q8s-1c-CFX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
