@@ -37,7 +37,7 @@
                                 <rect key="frame" x="37" y="183" width="300" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjN-TV-cZw">
+                                    <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjN-TV-cZw" customClass="FirstDispositionView" customModule="Projet_5" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -58,8 +58,13 @@
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.36078431370000003" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="firstImageView" destination="3YL-fS-dN3" id="q57-Ti-XWp"/>
+                                            <outlet property="secondImageView" destination="eOt-Bb-7Fi" id="qgB-AW-64L"/>
+                                            <outlet property="thirdImageView" destination="jCd-lu-rKO" id="TX0-jY-WQs"/>
+                                        </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xe0-VO-lbu">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xe0-VO-lbu" customClass="SecondDispositionView" customModule="Projet_5" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -80,8 +85,13 @@
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.36078431370000003" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="firstImageView" destination="RrL-IG-Jwu" id="KVt-DF-WvE"/>
+                                            <outlet property="secondImageView" destination="0Vx-hk-CPO" id="wqJ-qX-h9k"/>
+                                            <outlet property="thirdImageView" destination="0yc-GL-AEr" id="GWd-Ov-TNd"/>
+                                        </connections>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jbq-ds-f4d">
+                                    <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jbq-ds-f4d" customClass="ThirdDispositionView" customModule="Projet_5" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -107,6 +117,12 @@
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.36078431370000003" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="firstImageView" destination="XT0-PW-lcH" id="fN9-Tj-MCa"/>
+                                            <outlet property="fourthImageView" destination="s6B-eG-cJq" id="YbX-nu-pB9"/>
+                                            <outlet property="secondImageView" destination="ZLe-iR-adS" id="Kvk-fA-hwB"/>
+                                            <outlet property="thirdImageView" destination="cCC-Di-OwO" id="Y8K-cy-ztQ"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.36078431372549019" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

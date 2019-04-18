@@ -11,27 +11,22 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var rectangleImagesView: RectangleImagesView!
-    @IBOutlet var imagesView: [UIImageView]!
     
     var imagePicker: UIImagePickerController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for imageView in imagesView {
-            imageViewRecognizer(imageView: imageView)
-        }
         
         let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(shareView))
         swipeGestureRecognizer.direction = .up
         rectangleImagesView.addGestureRecognizer(swipeGestureRecognizer)
-    }
-    
-    
-    func imageViewRecognizer(imageView: UIImageView) {
-        imageView.isUserInteractionEnabled = true
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(choiceImage))
-        imageView.addGestureRecognizer(tapGestureRecognizer)
+        
+        
+        let name = Notification.Name(rawValue: "TapGestureRecognizer")
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(choiceImage),
+            name: name, object: nil)
     }
     
     
@@ -43,8 +38,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        imagesView[0].image = image
-        imagesView[0].contentMode = .scaleToFill
+        
+        if rectangleImagesView.disposition == .first {
+            rectangleImagesView.firstDisposition.imageViewSelected!.image = image
+        } else if rectangleImagesView.disposition == .second {
+            rectangleImagesView.secondDisposition.imageViewSelected!.image = image
+        } else {
+            rectangleImagesView.thirdDisposition.imageViewSelected!.image = image
+        }
+        
         imagePicker?.dismiss(animated: true, completion: nil)
     }
     

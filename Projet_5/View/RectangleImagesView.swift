@@ -10,9 +10,9 @@ import UIKit
 
 class RectangleImagesView: UIView {
     
-    @IBOutlet weak var firstDisposition: UIView!
-    @IBOutlet weak var secondDisposition: UIView!
-    @IBOutlet weak var thirdDisposition: UIView!
+    @IBOutlet weak var firstDisposition: FirstDispositionView!
+    @IBOutlet weak var secondDisposition: SecondDispositionView!
+    @IBOutlet weak var thirdDisposition: ThirdDispositionView!
     
     enum Disposition {
         case first, second, third

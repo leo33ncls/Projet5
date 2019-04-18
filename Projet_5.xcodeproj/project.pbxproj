@@ -16,6 +16,9 @@
 		289C3EBE225AC3E000E2E5F9 /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289C3EBD225AC3E000E2E5F9 /* ButtonsView.swift */; };
 		289C3ECA226645F400E2E5F9 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 289C3EC9226645F400E2E5F9 /* Delm-Medium.otf */; };
 		289C3ECC226645FC00E2E5F9 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 289C3ECB226645FC00E2E5F9 /* ThirstySoftRegular.otf */; };
+		289C3ECE2268E65500E2E5F9 /* FirstDispositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289C3ECD2268E65500E2E5F9 /* FirstDispositionView.swift */; };
+		289C3ED02268E6E400E2E5F9 /* SecondDispositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289C3ECF2268E6E400E2E5F9 /* SecondDispositionView.swift */; };
+		289C3ED22268E73000E2E5F9 /* ThirdDispositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289C3ED12268E73000E2E5F9 /* ThirdDispositionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		289C3EBD225AC3E000E2E5F9 /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
 		289C3EC9226645F400E2E5F9 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		289C3ECB226645FC00E2E5F9 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
+		289C3ECD2268E65500E2E5F9 /* FirstDispositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstDispositionView.swift; path = Projet_5/View/FirstDispositionView.swift; sourceTree = SOURCE_ROOT; };
+		289C3ECF2268E6E400E2E5F9 /* SecondDispositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondDispositionView.swift; sourceTree = "<group>"; };
+		289C3ED12268E73000E2E5F9 /* ThirdDispositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdDispositionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				2806C25122527E8C0004EBB0 /* Info.plist */,
-				2806C2572253EE580004EBB0 /* Model */,
 				2806C2582253EE6A0004EBB0 /* View */,
 				2806C2592253EE710004EBB0 /* Controller */,
 				2806C25A2253EEA40004EBB0 /* Supporting Files */,
@@ -71,17 +76,15 @@
 			path = Projet_5;
 			sourceTree = "<group>";
 		};
-		2806C2572253EE580004EBB0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		2806C2582253EE6A0004EBB0 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				2806C24922527E870004EBB0 /* Main.storyboard */,
+				289C3ECD2268E65500E2E5F9 /* FirstDispositionView.swift */,
+				289C3ECF2268E6E400E2E5F9 /* SecondDispositionView.swift */,
+				289C3ED12268E73000E2E5F9 /* ThirdDispositionView.swift */,
+				2806C25D22541E710004EBB0 /* RectangleImagesView.swift */,
+				289C3EBD225AC3E000E2E5F9 /* ButtonsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -90,8 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				2806C24722527E870004EBB0 /* ViewController.swift */,
-				289C3EBD225AC3E000E2E5F9 /* ButtonsView.swift */,
-				2806C25D22541E710004EBB0 /* RectangleImagesView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,9 +182,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				289C3ED02268E6E400E2E5F9 /* SecondDispositionView.swift in Sources */,
 				2806C24822527E870004EBB0 /* ViewController.swift in Sources */,
+				289C3ECE2268E65500E2E5F9 /* FirstDispositionView.swift in Sources */,
 				2806C25E22541E710004EBB0 /* RectangleImagesView.swift in Sources */,
 				289C3EBE225AC3E000E2E5F9 /* ButtonsView.swift in Sources */,
+				289C3ED22268E73000E2E5F9 /* ThirdDispositionView.swift in Sources */,
 				2806C24622527E870004EBB0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
