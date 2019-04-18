@@ -43,6 +43,12 @@ class RectangleImagesView: UIView {
     }
     
     
+    func refreshRectangleView() {
+        firstDisposition.refreshView()
+        secondDisposition.refreshView()
+        thirdDisposition.refreshView()
+    }
+    
     
     
 }

@@ -60,4 +60,11 @@ class SecondDispositionView: UIView {
         imageViewSelected = thirdImageView
     }
 
+    
+    func refreshView() {
+        firstImageView.image = UIImage(named: "Cross")
+        secondImageView.image = UIImage(named: "Cross")
+        thirdImageView.image = UIImage(named: "RectangleCross")
+    }
+
 }

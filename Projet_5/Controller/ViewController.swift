@@ -95,8 +95,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let activityViewController = UIActivityViewController(activityItems: sharedContent, applicationActivities: nil)
         self.present(activityViewController, animated: true, completion: nil)
+        
+        refresh()
     }
     
+    
+    func refresh() {
+        rectangleImagesView.transform = .identity
+        rectangleImagesView.refreshRectangleView()
+    }
 
     @IBAction func tapButton1(_ sender: Any) {
         rectangleImagesView.disposition = .first
