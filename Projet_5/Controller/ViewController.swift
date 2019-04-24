@@ -131,17 +131,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         rectangleImagesView.refreshRectangleView()
     }
 
-    @IBAction func tapButton1(_ sender: Any) {
-        rectangleImagesView.disposition = .first
-    }
-    
-    @IBAction func tapButton2(_ sender: Any) {
-        rectangleImagesView.disposition = .second
-    }
-    
-    @IBAction func tapButton3(_ sender: Any) {
-        rectangleImagesView.disposition = .third
-    }
     
 
 }
