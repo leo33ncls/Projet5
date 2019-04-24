@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wM6-o1-CDe">
-                                <rect key="frame" x="118.5" y="25" width="138.5" height="50"/>
+                                <rect key="frame" x="118" y="25" width="139" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FpE-7G-eI5">
                                         <variation key="heightClass=compact-widthClass=compact" constant="45"/>
@@ -246,8 +246,8 @@
                                     <outlet property="thirdDisposition" destination="jbq-ds-f4d" id="qyg-0T-acG"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAB-Yb-16A">
-                                <rect key="frame" x="137.5" y="147.5" width="100.5" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAB-Yb-16A">
+                                <rect key="frame" x="110.5" y="147.5" width="154" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="qXh-zI-ei7"/>
                                 </constraints>
@@ -401,10 +401,10 @@
                                 <exclude reference="DIF-cI-3qd"/>
                                 <exclude reference="vup-Ce-D8u"/>
                                 <exclude reference="wHO-BP-OJ6"/>
-                                <exclude reference="yTc-c0-dbl"/>
                                 <exclude reference="Qz6-mt-OsP"/>
                                 <exclude reference="R01-Gk-dmE"/>
                                 <exclude reference="tYH-wZ-NVE"/>
+                                <exclude reference="yTc-c0-dbl"/>
                                 <exclude reference="GAN-5P-ngB"/>
                                 <exclude reference="YkD-uV-xq8"/>
                                 <exclude reference="dOr-5e-ffs"/>
@@ -419,13 +419,13 @@
                                 <exclude reference="eD2-NO-v8H"/>
                                 <include reference="vup-Ce-D8u"/>
                                 <exclude reference="wHO-BP-OJ6"/>
-                                <exclude reference="LJC-uv-fCj"/>
-                                <include reference="yTc-c0-dbl"/>
                                 <exclude reference="0tg-Fw-DmF"/>
                                 <include reference="Qz6-mt-OsP"/>
                                 <exclude reference="R01-Gk-dmE"/>
                                 <exclude reference="YkO-9z-MTf"/>
                                 <include reference="tYH-wZ-NVE"/>
+                                <exclude reference="LJC-uv-fCj"/>
+                                <include reference="yTc-c0-dbl"/>
                                 <exclude reference="0aa-QR-zlf"/>
                                 <include reference="GAN-5P-ngB"/>
                                 <exclude reference="QPs-xX-vN8"/>
@@ -438,6 +438,8 @@
                     </view>
                     <connections>
                         <outlet property="rectangleImagesView" destination="p6y-A4-9SV" id="jwV-wx-ZMH"/>
+                        <outlet property="swipeImageView" destination="v9K-Wt-Fkf" id="pCd-AN-VTi"/>
+                        <outlet property="swipeLabel" destination="ZAB-Yb-16A" id="jlP-IM-hLb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var rectangleImagesView: RectangleImagesView!
+    @IBOutlet weak var swipeImageView: UIImageView!
+    @IBOutlet weak var swipeLabel: UILabel!
     
     var imagePicker: UIImagePickerController?
     
@@ -32,16 +34,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        swipeGestureRecognizer()
+    }
     
     func swipeGestureRecognizer() {
-        if UIDevice.current.orientation == .portrait {
+        switch UIDevice.current.orientation {
+        case .portrait,.unknown:
+            rectangleImagesView.gestureRecognizers?.removeAll()
             let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(shareView))
             swipeGestureRecognizer.direction = .up
             rectangleImagesView.addGestureRecognizer(swipeGestureRecognizer)
-        } else {
+            swipeImageView.image = UIImage(named: "SwipeUp")
+            swipeLabel.text = "Swipe up to share"
+        case .landscapeLeft,.landscapeRight:
+            rectangleImagesView.gestureRecognizers?.removeAll()
             let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(shareView))
             swipeGestureRecognizer.direction = .left
             rectangleImagesView.addGestureRecognizer(swipeGestureRecognizer)
+            swipeImageView.image = UIImage(named: "SwipeLeft")
+            swipeLabel.text = "Swipe left to share"
+        default:
+            break
         }
     }
     
