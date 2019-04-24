@@ -70,6 +70,7 @@ class RectangleImagesView: UIView {
         NotificationCenter.default.addObserver(self, selector: #selector(setThirdDispo), name: NSNotification.Name(rawValue: "Button3Recognizer"), object: nil)
     }
     
+    
     @objc private func setFirstDispo() {
         disposition = .first
     }
@@ -80,6 +81,17 @@ class RectangleImagesView: UIView {
     
     @objc private func setThirdDispo() {
         disposition = .third
+    }
+    
+    
+    func receiveImage(image: UIImage) {
+        if disposition == .first {
+            firstDisposition.getImage(image: image)
+        } else if disposition == .second {
+            secondDisposition.getImage(image: image)
+        } else {
+            thirdDisposition.getImage(image: image)
+        }
     }
     
     

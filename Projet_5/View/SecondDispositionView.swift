@@ -68,6 +68,10 @@ class SecondDispositionView: UIView {
         
         imageViewSelected = thirdImageView
     }
+    
+    func getImage(image: UIImage) {
+        imageViewSelected?.image = image
+    }
 
     
     func refreshView() {

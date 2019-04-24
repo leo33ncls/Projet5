@@ -69,12 +69,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         
-        if rectangleImagesView.disposition == .first {
-            rectangleImagesView.firstDisposition.imageViewSelected!.image = image
-        } else if rectangleImagesView.disposition == .second {
-            rectangleImagesView.secondDisposition.imageViewSelected!.image = image
-        } else {
-            rectangleImagesView.thirdDisposition.imageViewSelected!.image = image
+        if let picture = image {
+            rectangleImagesView.receiveImage(image: picture)
         }
         
         imagePicker?.dismiss(animated: true, completion: nil)
@@ -97,7 +93,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if sender.direction == .up {
                 self.rectangleImagesView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
             } else if sender.direction == .left {
-                self.rectangleImagesView.transform = CGAffineTransform(translationX: self.view.frame.width, y: 0)
+                self.rectangleImagesView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
             }
             
         }, completion: { (success) in
@@ -117,7 +113,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func shareContent() {
         var sharedContent: [Any] = []
-        sharedContent.append(rectangleImagesView)
+        
+        let renderer = UIGraphicsImageRenderer(size: rectangleImagesView.bounds.size)
+        let image = renderer.image(actions: { (contexte) in
+            view.drawHierarchy(in: rectangleImagesView.bounds, afterScreenUpdates: true)
+        })
+        sharedContent.append(image)
         
         let activityViewController = UIActivityViewController(activityItems: sharedContent, applicationActivities: nil)
         self.present(activityViewController, animated: true, completion: nil)
