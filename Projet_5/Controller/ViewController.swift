@@ -133,6 +133,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     
+    @IBAction func tapResetButton(_ sender: Any) {
+        refresh()
+    }
+    
 
 }
 
