@@ -19,10 +19,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rectangleImagesView.firstDisposition.imageViewRecognizer()
-        rectangleImagesView.secondDisposition.imageViewRecognizer()
-        rectangleImagesView.thirdDisposition.imageViewRecognizer()
-        
         
         swipeGestureRecognizer()
         
@@ -104,7 +100,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     let alert = UIAlertController(title: "Share unavailable", message: "Missing image", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
-                    self.rectangleImagesView.transform = .identity
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.rectangleImagesView.transform = .identity
+                    })
                 }
             }
         })
@@ -128,7 +126,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     func refresh() {
-        rectangleImagesView.transform = .identity
+        UIView.animate(withDuration: 0.3, animations: {
+            self.rectangleImagesView.transform = .identity
+        })
         rectangleImagesView.refreshRectangleView()
     }
 

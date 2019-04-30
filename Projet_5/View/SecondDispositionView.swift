@@ -14,14 +14,21 @@ class SecondDispositionView: UIView {
     @IBOutlet weak var secondImageView: UIImageView!
     @IBOutlet weak var thirdImageView: UIImageView!
     
+    
     var imageViewSelected: UIImageView? = nil
     
     var isReadyToBeShared: Bool {
-        if firstImageView.image == UIImage(named: "RectangleCross") || secondImageView.image == UIImage(named: "Cross") || thirdImageView.image == UIImage(named: "Cross") {
+        if firstImageView.image == UIImage(named: "Cross") || secondImageView.image == UIImage(named: "Cross") || thirdImageView.image == UIImage(named: "RectangleCross") {
             return false
         } else {
             return true
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        imageViewRecognizer()
     }
     
     
@@ -70,6 +77,7 @@ class SecondDispositionView: UIView {
     }
     
     func getImage(image: UIImage) {
+        imageViewSelected?.contentMode = .scaleToFill
         imageViewSelected?.image = image
     }
 

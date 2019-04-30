@@ -14,6 +14,7 @@ class FirstDispositionView: UIView {
     @IBOutlet weak var secondImageView: UIImageView!
     @IBOutlet weak var thirdImageView: UIImageView!
     
+    
     var imageViewSelected: UIImageView? = nil
     
     var isReadyToBeShared: Bool {
@@ -23,6 +24,13 @@ class FirstDispositionView: UIView {
             return true
         }
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        imageViewRecognizer()
+    }
+    
     
     func imageViewRecognizer() {
         firstImageView.isUserInteractionEnabled = true

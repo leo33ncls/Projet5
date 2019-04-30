@@ -15,14 +15,21 @@ class ThirdDispositionView: UIView {
     @IBOutlet weak var thirdImageView: UIImageView!
     @IBOutlet weak var fourthImageView: UIImageView!
     
-    var imageViewSelected: UIImageView? = nil
+    
+    var imageViewSelected: UIImageView?
     
     var isReadyToBeShared: Bool {
-        if firstImageView.image == UIImage(named: "RectangleCross") || secondImageView.image == UIImage(named: "Cross") || thirdImageView.image == UIImage(named: "Cross") {
+        if firstImageView.image == UIImage(named: "Cross") || secondImageView.image == UIImage(named: "Cross") || thirdImageView.image == UIImage(named: "Cross") || fourthImageView.image == UIImage(named: "Cross") {
             return false
         } else {
             return true
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        imageViewRecognizer()
     }
     
     func imageViewRecognizer() {
