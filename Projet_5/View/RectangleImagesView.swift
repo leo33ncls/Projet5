@@ -15,6 +15,17 @@ class RectangleImagesView: UIView {
     @IBOutlet weak var thirdDisposition: ThirdDispositionView!
     
     
+    enum Disposition {
+        case first, second, third
+    }
+    
+    private var disposition: Disposition = .second {
+        didSet {
+            setDisposition(disposition: disposition)
+        }
+    }
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -26,18 +37,7 @@ class RectangleImagesView: UIView {
         
         notificationObserver()
     }
-    
-    
-    
-    enum Disposition {
-        case first, second, third
-    }
-    
-    var disposition: Disposition = .second {
-        didSet {
-            setDisposition(disposition: disposition)
-        }
-    }
+
     
     private func setDisposition (disposition: Disposition) {
         switch disposition {
@@ -86,19 +86,19 @@ class RectangleImagesView: UIView {
     
     func receiveImage(image: UIImage) {
         if disposition == .first {
-            firstDisposition.getImage(image: image)
+            firstDisposition.setImage(image: image)
         } else if disposition == .second {
-            secondDisposition.getImage(image: image)
+            secondDisposition.setImage(image: image)
         } else {
-            thirdDisposition.getImage(image: image)
+            thirdDisposition.setImage(image: image)
         }
     }
     
     
-    func refreshRectangleView() {
-        firstDisposition.refreshView()
-        secondDisposition.refreshView()
-        thirdDisposition.refreshView()
+    func resetRectangleView() {
+        firstDisposition.resetView()
+        secondDisposition.resetView()
+        thirdDisposition.resetView()
     }
     
     func currentViewCanBeShared() -> Bool {

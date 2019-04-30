@@ -15,8 +15,6 @@ class SecondDispositionView: UIView {
     @IBOutlet weak var thirdImageView: UIImageView!
     
     
-    var imageViewSelected: UIImageView? = nil
-    
     var isReadyToBeShared: Bool {
         if firstImageView.image == UIImage(named: "Cross") || secondImageView.image == UIImage(named: "Cross") || thirdImageView.image == UIImage(named: "RectangleCross") {
             return false
@@ -25,6 +23,9 @@ class SecondDispositionView: UIView {
         }
     }
     
+    private var imageViewSelected: UIImageView? = nil
+    
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -32,7 +33,7 @@ class SecondDispositionView: UIView {
     }
     
     
-    func imageViewRecognizer() {
+    private func imageViewRecognizer() {
         firstImageView.isUserInteractionEnabled = true
         secondImageView.isUserInteractionEnabled = true
         thirdImageView.isUserInteractionEnabled = true
@@ -49,7 +50,7 @@ class SecondDispositionView: UIView {
     }
     
     
-    @objc func sendNotification() {
+    @objc private func sendNotification() {
         let name = Notification.Name("TapGestureRecognizer")
         let notification = Notification(name: name)
         
@@ -58,7 +59,7 @@ class SecondDispositionView: UIView {
         imageViewSelected = firstImageView
     }
     
-    @objc func sendNotification2() {
+    @objc private func sendNotification2() {
         let name = Notification.Name("TapGestureRecognizer")
         let notification = Notification(name: name)
         
@@ -67,7 +68,7 @@ class SecondDispositionView: UIView {
         imageViewSelected = secondImageView
     }
     
-    @objc func sendNotification3() {
+    @objc private func sendNotification3() {
         let name = Notification.Name("TapGestureRecognizer")
         let notification = Notification(name: name)
         
@@ -76,13 +77,13 @@ class SecondDispositionView: UIView {
         imageViewSelected = thirdImageView
     }
     
-    func getImage(image: UIImage) {
+    func setImage(image: UIImage) {
         imageViewSelected?.contentMode = .scaleToFill
         imageViewSelected?.image = image
     }
 
     
-    func refreshView() {
+    func resetView() {
         firstImageView.image = UIImage(named: "Cross")
         secondImageView.image = UIImage(named: "Cross")
         thirdImageView.image = UIImage(named: "RectangleCross")

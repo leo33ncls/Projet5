@@ -16,8 +16,6 @@ class ThirdDispositionView: UIView {
     @IBOutlet weak var fourthImageView: UIImageView!
     
     
-    var imageViewSelected: UIImageView?
-    
     var isReadyToBeShared: Bool {
         if firstImageView.image == UIImage(named: "Cross") || secondImageView.image == UIImage(named: "Cross") || thirdImageView.image == UIImage(named: "Cross") || fourthImageView.image == UIImage(named: "Cross") {
             return false
@@ -26,13 +24,16 @@ class ThirdDispositionView: UIView {
         }
     }
     
+    private var imageViewSelected: UIImageView?
+    
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
         imageViewRecognizer()
     }
     
-    func imageViewRecognizer() {
+    private func imageViewRecognizer() {
         firstImageView.isUserInteractionEnabled = true
         secondImageView.isUserInteractionEnabled = true
         thirdImageView.isUserInteractionEnabled = true
@@ -53,7 +54,7 @@ class ThirdDispositionView: UIView {
     }
     
     
-    @objc func sendNotification() {
+    @objc private func sendNotification() {
         let name = Notification.Name("TapGestureRecognizer")
         let notification = Notification(name: name)
         
@@ -62,7 +63,7 @@ class ThirdDispositionView: UIView {
         imageViewSelected = firstImageView
     }
     
-    @objc func sendNotification2() {
+    @objc private func sendNotification2() {
         let name = Notification.Name("TapGestureRecognizer")
         let notification = Notification(name: name)
         
@@ -71,7 +72,7 @@ class ThirdDispositionView: UIView {
         imageViewSelected = secondImageView
     }
     
-    @objc func sendNotification3() {
+    @objc private func sendNotification3() {
         let name = Notification.Name("TapGestureRecognizer")
         let notification = Notification(name: name)
         
@@ -80,7 +81,7 @@ class ThirdDispositionView: UIView {
         imageViewSelected = thirdImageView
     }
     
-    @objc func sendNotification4() {
+    @objc private func sendNotification4() {
         let name = Notification.Name("TapGestureRecognizer")
         let notification = Notification(name: name)
         
@@ -90,12 +91,12 @@ class ThirdDispositionView: UIView {
     }
     
     
-    func getImage(image: UIImage) {
+    func setImage(image: UIImage) {
         imageViewSelected?.image = image
     }
     
     
-    func refreshView() {
+    func resetView() {
         firstImageView.image = UIImage(named: "Cross")
         secondImageView.image = UIImage(named: "Cross")
         thirdImageView.image = UIImage(named: "Cross")

@@ -14,7 +14,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var swipeImageView: UIImageView!
     @IBOutlet weak var swipeLabel: UILabel!
     
-    var imagePicker: UIImagePickerController?
+    private var imagePicker: UIImagePickerController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         swipeGestureRecognizer()
     }
     
-    func swipeGestureRecognizer() {
+    private func swipeGestureRecognizer() {
         switch UIDevice.current.orientation {
         case .portrait,.unknown:
             rectangleImagesView.gestureRecognizers?.removeAll()
@@ -73,7 +73,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    @objc func choiceImage() {
+    @objc private func choiceImage() {
         imagePicker = UIImagePickerController()
         imagePicker?.delegate = self
         
@@ -83,7 +83,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    @objc func shareView(_ sender: UISwipeGestureRecognizer) {
+    @objc private func shareView(_ sender: UISwipeGestureRecognizer) {
         
         UIView.animate(withDuration: 0.3, animations: {
             if sender.direction == .up {
@@ -94,22 +94,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         }, completion: { (success) in
             if success {
-                if self.rectangleImagesView.currentViewCanBeShared() {
-                    self.shareContent()
-                } else {
-                    let alert = UIAlertController(title: "Share unavailable", message: "Missing image", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                    UIView.animate(withDuration: 0.3, animations: {
-                        self.rectangleImagesView.transform = .identity
-                    })
-                }
+                self.shareViewCompletion()
             }
         })
     }
     
+    private func shareViewCompletion() {
+        if rectangleImagesView.currentViewCanBeShared() {
+            shareContent()
+        } else {
+            let alert = UIAlertController(title: "Share unavailable", message: "Missing image", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            UIView.animate(withDuration: 0.3, animations: {
+                self.rectangleImagesView.transform = .identity
+            })
+        }
+    }
     
-    func shareContent() {
+    
+    private func shareContent() {
         var sharedContent: [Any] = []
         
         let renderer = UIGraphicsImageRenderer(size: rectangleImagesView.bounds.size)
@@ -121,20 +125,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let activityViewController = UIActivityViewController(activityItems: sharedContent, applicationActivities: nil)
         self.present(activityViewController, animated: true, completion: nil)
         
-        refresh()
+        reset()
     }
     
     
-    func refresh() {
+    private func reset() {
         UIView.animate(withDuration: 0.3, animations: {
             self.rectangleImagesView.transform = .identity
         })
-        rectangleImagesView.refreshRectangleView()
+        rectangleImagesView.resetRectangleView()
     }
 
     
     @IBAction func tapResetButton(_ sender: Any) {
-        refresh()
+        reset()
     }
     
 
