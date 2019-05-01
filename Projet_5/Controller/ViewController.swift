@@ -10,15 +10,22 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    //====================
+    //Properties
+    
     @IBOutlet weak var rectangleImagesView: RectangleImagesView!
     @IBOutlet weak var swipeImageView: UIImageView!
     @IBOutlet weak var swipeLabel: UILabel!
     
+    // The image picker controller
     private var imagePicker: UIImagePickerController?
+    
+    
+    //===================
+    //Overriding
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         swipeGestureRecognizer()
         
@@ -34,6 +41,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         swipeGestureRecognizer()
     }
     
+    
+    //====================
+    // Methods
+    
+    // Method which add the swipe gesture recognizer for the rectangle view
     private func swipeGestureRecognizer() {
         switch UIDevice.current.orientation {
         case .portrait,.unknown:
@@ -55,7 +67,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    
+    // Method allowing to choice an image in the Photo library
+    @objc private func choiceImage() {
+        imagePicker = UIImagePickerController()
+        imagePicker?.delegate = self
+        
+        guard imagePicker != nil else { return }
+        imagePicker?.sourceType = .photoLibrary
+        self.present(self.imagePicker!, animated: true, completion: nil)
+    }
+
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         imagePicker?.dismiss(animated: true, completion: nil)
     }
@@ -73,16 +95,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    @objc private func choiceImage() {
-        imagePicker = UIImagePickerController()
-        imagePicker?.delegate = self
-        
-        guard imagePicker != nil else { return }
-        imagePicker?.sourceType = .photoLibrary
-        self.present(self.imagePicker!, animated: true, completion: nil)
-    }
-    
-    
+    // Method allowing to share the rectangleView
     @objc private func shareView(_ sender: UISwipeGestureRecognizer) {
         
         UIView.animate(withDuration: 0.3, animations: {
@@ -99,6 +112,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         })
     }
     
+    
+    // The shareView completion
     private func shareViewCompletion() {
         if rectangleImagesView.currentViewCanBeShared() {
             shareContent()
@@ -113,6 +128,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
+    // Method allowing to share the content of the rectangleView
     private func shareContent() {
         var sharedContent: [Any] = []
         
@@ -129,6 +145,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
+    // Method which reset the view
     private func reset() {
         UIView.animate(withDuration: 0.3, animations: {
             self.rectangleImagesView.transform = .identity
@@ -137,6 +154,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     
+    // Method that reset the view when the resetButton is pressed
     @IBAction func tapResetButton(_ sender: Any) {
         reset()
     }

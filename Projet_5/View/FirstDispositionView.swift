@@ -8,13 +8,18 @@
 
 import UIKit
 
+// Class representing the first disposition view
 class FirstDispositionView: UIView {
 
+    
+    //=================
+    // Properties
+    
     @IBOutlet weak var firstImageView: UIImageView!
     @IBOutlet weak var secondImageView: UIImageView!
     @IBOutlet weak var thirdImageView: UIImageView!
     
-    
+    // A boolean to know if the view is ready to be shared
     var isReadyToBeShared: Bool {
         if firstImageView.image == UIImage(named: "RectangleCross") || secondImageView.image == UIImage(named: "Cross") || thirdImageView.image == UIImage(named: "Cross") {
             return false
@@ -23,8 +28,12 @@ class FirstDispositionView: UIView {
         }
     }
     
+    // The imageView selected
     private var imageViewSelected: UIImageView? = nil
     
+    
+    //=================
+    // Overriding
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -33,6 +42,10 @@ class FirstDispositionView: UIView {
     }
     
     
+    //=================
+    // Methods
+    
+    // Method which add the gesture recognizer for the imageView
     private func imageViewRecognizer() {
         firstImageView.isUserInteractionEnabled = true
         secondImageView.isUserInteractionEnabled = true
@@ -50,6 +63,7 @@ class FirstDispositionView: UIView {
     }
     
     
+    // Method that sends a notification when the first imageView is tapped
     @objc private func sendNotification() {
         let name = Notification.Name("TapGestureRecognizer")
         let notification = Notification(name: name)
@@ -59,6 +73,7 @@ class FirstDispositionView: UIView {
         imageViewSelected = firstImageView
     }
     
+    // Method that sends a notification when the second imageView is tapped
     @objc private func sendNotification2() {
         let name = Notification.Name("TapGestureRecognizer")
         let notification = Notification(name: name)
@@ -68,6 +83,7 @@ class FirstDispositionView: UIView {
         imageViewSelected = secondImageView
     }
     
+    // Method that sends a notification when the third imageView is tapped
     @objc private func sendNotification3() {
         let name = Notification.Name("TapGestureRecognizer")
         let notification = Notification(name: name)
@@ -78,11 +94,13 @@ class FirstDispositionView: UIView {
     }
     
     
+    // Method which give the image to the selected imageView
     func setImage(image: UIImage) {
         imageViewSelected?.image = image
     }
     
     
+    // Method which reset the view
     func resetView() {
         firstImageView.image = UIImage(named: "RectangleCross")
         secondImageView.image = UIImage(named: "Cross")
