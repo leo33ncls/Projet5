@@ -30,7 +30,7 @@
                                     <constraint firstAttribute="width" secondItem="9tu-GK-iIP" secondAttribute="height" multiplier="1:1" id="QRL-MO-gni"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wN6-pG-can">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wN6-pG-can">
                                 <rect key="frame" x="118.5" y="182.5" width="138.5" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="NsQ-sC-8Dj"/>

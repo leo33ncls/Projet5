@@ -96,7 +96,8 @@ class SecondDispositionView: UIView {
     
     // Method which give the image to the selected imageView
     func setImage(image: UIImage) {
-        imageViewSelected?.contentMode = .scaleToFill
+        imageViewSelected?.clipsToBounds = true
+        imageViewSelected?.contentMode = .scaleAspectFill
         imageViewSelected?.image = image
     }
 
