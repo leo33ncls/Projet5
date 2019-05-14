@@ -29,13 +29,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         swipeGestureRecognizer()
         
-        
         let name = Notification.Name(rawValue: "TapGestureRecognizer")
         NotificationCenter.default.addObserver(
             self, selector: #selector(choiceImage),
             name: name, object: nil)
-        
     }
+    
     
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
         swipeGestureRecognizer()
