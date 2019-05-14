@@ -132,11 +132,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     private func shareContent() {
         var sharedContent: [Any] = []
         
-        let renderer = UIGraphicsImageRenderer(size: rectangleImagesView.bounds.size)
-        let image = renderer.image(actions: { (contexte) in
-            view.drawHierarchy(in: rectangleImagesView.bounds, afterScreenUpdates: true)
-        })
-        sharedContent.append(image)
+        UIGraphicsBeginImageContextWithOptions(rectangleImagesView.bounds.size, rectangleImagesView.isOpaque, 0.0)
+        defer { UIGraphicsEndImageContext() }
+        if let context = UIGraphicsGetCurrentContext() {
+            rectangleImagesView.layer.render(in: context)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            if let picture = image {
+                sharedContent.append(picture)
+            }
+        }
         
         let activityViewController = UIActivityViewController(activityItems: sharedContent, applicationActivities: nil)
         self.present(activityViewController, animated: true, completion: nil)
